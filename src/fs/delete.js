@@ -1,4 +1,4 @@
-import { access, constants, rename, unlink } from 'fs/promises'
+import { access, unlink } from 'fs/promises'
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -11,7 +11,6 @@ const remove = async () => {
 	try {
 		await access(fileToRemove);
 		await unlink(fileToRemove);
-
 	} catch (error) {
 		throw new Error('FS operation failed: File does not exist');
 	}
