@@ -1,5 +1,19 @@
+import { access, constants, readdir, rename } from 'fs/promises'
+import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const filesFolder = resolve(__dirname, 'files')
+
 const list = async () => {
-    // Write your code here 
+	try {
+		const files = await readdir(filesFolder);
+		console.log(files);
+	} catch {
+		throw new Error('FS operation failed: Folder does not exist');
+	}
 };
 
 await list();
