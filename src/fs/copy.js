@@ -41,6 +41,6 @@ const copy = async (source, target) => {
   }
 };
 
-copy(sourceDir, destinationDir);
+await copy(sourceDir, destinationDir);
 
 

@@ -17,4 +17,4 @@ const read = async () => {
 	}
 };
 
-read();
+await read();

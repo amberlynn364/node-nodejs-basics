@@ -25,4 +25,4 @@ const renameFile = async () => {
   }
 }
 
-renameFile();
+await renameFile();
