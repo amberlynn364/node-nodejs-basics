@@ -1,11 +1,11 @@
 import { access, readFile } from 'fs/promises'
-import { dirname, resolve } from 'path';
+import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const fileToRead = resolve(__dirname, 'files', 'fileToRead.txt')
+const fileToRead = join(__dirname, 'files', 'fileToRead.txt')
 
 const read = async () => {
 	try {

@@ -1,12 +1,12 @@
 import { access, constants, rename } from 'fs/promises'
-import { dirname, resolve } from 'path';
+import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const oldFile = resolve(__dirname, 'files', 'wrongFilename.txt');
-const newFile = resolve(__dirname, 'files', 'properFilename.md');
+const oldFile = join(__dirname, 'files', 'wrongFilename.txt');
+const newFile = join(__dirname, 'files', 'properFilename.md');
 
 const checkFileExists = async (file) => {
   try {

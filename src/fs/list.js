@@ -1,11 +1,11 @@
 import { readdir } from 'fs/promises'
-import { dirname, resolve } from 'path';
+import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const filesFolder = resolve(__dirname, 'files')
+const filesFolder = join(__dirname, 'files')
 
 const list = async () => {
 	try {
