@@ -8,19 +8,10 @@ const __dirname = dirname(__filename);
 const oldFile = join(__dirname, 'files', 'wrongFilename.txt');
 const newFile = join(__dirname, 'files', 'properFilename.md');
 
-const checkFileExists = async (file) => {
-  try {
-    await access(file, constants.F_OK);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
 const renameFile = async () => {
-  if (await checkFileExists(oldFile) && !(await checkFileExists(newFile))) {
-    rename(oldFile, newFile);
-  } else {
+  try {
+    await rename(oldFile, newFile);
+  } catch {
     throw new Error('FS operation failed');
   }
 }
