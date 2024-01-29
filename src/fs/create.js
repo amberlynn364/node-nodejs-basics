@@ -4,23 +4,13 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const filePath = join(__dirname, 'files', 'fresh.txt')
 
 const create = async () => {
-	const filePath = join(__dirname, 'files', 'fresh.txt')
 	try {
-		await access(filePath, constants.F_OK);
+		await writeFile(filePath, 'I am fresh and young', { flag: 'wx' });
+	} catch {
 		throw new Error('FS operation failed');
-	} catch (error) {
-		if (error.code === 'ENOENT') {
-			try {
-				await writeFile(filePath, 'I am fresh and young')
-				console.log('File successfully created.');
-			} catch (error) {
-				console.error('Error creating file:', error);
-			}
-		} else {
-			throw error;
-		}
 	}
 };
 
