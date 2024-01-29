@@ -1,4 +1,4 @@
-import { writeFile, access, constants } from 'fs/promises';
+import { writeFile } from 'fs/promises';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
